@@ -1,0 +1,16 @@
+[
+    {
+        "number": "123",
+        "street_name": "2nd Avenue",
+        "city": "Minneapolis",
+        "state": "MN",
+        "zip_code": "44444"
+    },
+    {
+        "number": "456",
+        "street_name": "Main Street",
+        "city": "Chicago",
+        "state": "IL",
+        "zip_code": "666666"
+    }
+]
