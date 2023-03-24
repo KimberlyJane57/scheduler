@@ -12,15 +12,15 @@ Appointments.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-Appointments.hasOne(Service, {
+Service.hasOne(Appointments, {
     foreignKey: 'service_id',
 });
 
-Appointments.hasOne(Staff, {
+Staff.hasOne(Appointments, {
     foreignKey: 'staff_id',
 });
 
-Appointments.hasOne(Location, {
+Location.hasOne(Appointments, {
     foreignKey: 'location_id',
 })
 
