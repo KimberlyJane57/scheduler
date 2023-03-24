@@ -1,0 +1,20 @@
+[
+  {
+    "service_type": "Dental cleaning"
+  },
+  {
+    "service_type": "X-Ray"
+  },
+  {
+    "service_type": "Fillings"
+  },
+  {
+    "service_type": "Crowns"
+  },
+  {
+    "service_type": "Implants"
+  },
+  {
+    "service_type": "Root canal"
+  }
+]
