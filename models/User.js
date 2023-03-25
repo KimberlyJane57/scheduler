@@ -24,20 +24,18 @@ User.init(
         isEmail: true,
       },
     },
-    first_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    last_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [8],
       },
+    },
+    first_name: {
+      type: DataTypes.STRING,
+    },
+    last_name: {
+        type: DataTypes.STRING,
     },
     birthdate: {
         type: DataTypes.DATEONLY,
@@ -47,7 +45,6 @@ User.init(
     },
     phone_number: {
         type: DataTypes.STRING,
-        allowNull: false,
         validate: {
             validator: function(v) {
                 return phoneValidationRegex.test(v); 
