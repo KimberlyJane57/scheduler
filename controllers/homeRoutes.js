@@ -19,10 +19,8 @@ router.get("/appointments", async (req, res) => {
       ]
     });
     const userAppts = appts.map((appointment) => appointment.get({ plain: true }))
-    console.log(userAppts);
-    res.render("appointments", {
-      ...userAppts,
-    });
+    console.log({ appointments: userAppts});
+    res.render("appointments", { appointments: userAppts});
   } catch (err) {
     console.log(err.message);
     res.status(500).json(err);
