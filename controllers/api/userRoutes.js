@@ -1,61 +1,56 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User } = require('../../models/User');
 
-router.post('/', async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.post('/login', async (req, res) => {
-  try {
+router.post('/', auth, async (req,res,next) => {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
-    if (!userData) {
+    if (userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
+        .json({ message: 'User already exist ${req.body.email}.'});
+      return; 
     }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
+    //Create User
+    try {
+      const userData = await User.create({
+        ...req.body, 
+        user_id: req.session.user_id,
+      });
+      res.status(200).json(newUser);
+    } catch (err) {
+      res.status(400).json(err);
     }
+  });
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
+router.put('/', auth, async (req, res) => {
+  const userData = await User.findOne({ where: { 
+    email: req.body.email,
+    password: req.body.password
+  }
+});
+
+  if (!userData) {
+    res
+      .status(400)
+      .json({ message: 'Incorrect email or password, please try again.' });
+    return;
+  }
+  //Update User
+  try {
+    const userData = await User.update({
+      ...req.body, 
+      user_id: req.session.user_id,
+      password: req.session.password,
+      first_name: req.session.first_name,
+      last_name: req.session.last_name,
+      birthdate: req.session.birthdate,
+      phone_number: req.session.phone_number,
     });
-
+    res.status(200).json(updateUser);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
 
 module.exports = router;
