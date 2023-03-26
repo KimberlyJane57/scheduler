@@ -19,7 +19,7 @@ router.get("/appointments", async (req, res) => {
       ]
     });
     const userAppts = appts.map((appointment) => appointment.get({ plain: true }))
-    
+    console.log(userAppts);
     res.render("appointments", {
       ...userAppts,
     });
