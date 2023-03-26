@@ -9,15 +9,20 @@ router.get("/", async (req, res) => {
 router.get("/appointments", async (req, res) => {
   try {
     const appts = await Appointments.findAll({
-      attributes: { exclude: ["password"] },
-      include: [{ model: Location, User, Service, Staff }],
+      
+      include: [
+        { model: User,
+        attributes: { exclude: ['password'] } },
+        { model: Location },
+        {model: Staff },
+        {model: Service }
+      ]
     });
-    const userAppts = appts.get({ plain: true });
-    if (userAppts.user_id == req.session.user_id) {
-    res.render("appointments", {
-      ...userAppts,
-    })};
+    const userAppts = appts.map((appointment) => appointment.get({ plain: true }))
+    console.log({ appointments: userAppts});
+    res.render("appointments", { appointments: userAppts});
   } catch (err) {
+    console.log(err.message);
     res.status(500).json(err);
   }
 });
