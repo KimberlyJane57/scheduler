@@ -14,18 +14,6 @@ router.post('/signup', async (req, res) => {
     }
     //Create User
 
-    // try {
-    //   const userData = await User.create({
-    //     ...req.body, 
-    //     user_id: req.body.user_id,
-    //     email: req.body.email,
-    //     password: req.body.password
-    //   });
-    //   res.status(200).json(newUser);
-    // } catch (err) {
-    //   res.status(400).json(err);
-    // }
-
       const userData = User.create(req.body);
       req.session.save(() => {
         req.session.user_id = userData.id
@@ -37,6 +25,8 @@ router.post('/signup', async (req, res) => {
       res.status(401).json(err);
     }
     });
+
+    router.get('/login', async)
 
 // router.put('/signup', async (req, res) => {
 //   const userData = await User.findOne({ where: { 
