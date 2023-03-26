@@ -1,24 +1,28 @@
 const router = require("express").Router();
-const { User, Location, Service, Staff } = require("../models");
+const { User, Appointments, Location, Staff, Service } = require("../models");
 // const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
   res.render("landing");
 });
 
-router.get("/appointments", async (res, req) => {
+router.get("/appointments", async (req, res) => {
   try {
-    const appts = await Appointments.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Location, User, Service, Staff }],
+    const appts = await Appointments.findAll({
+      
+      include: [
+        { model: User,
+        attributes: { exclude: ['password'] } },
+        { model: Location },
+        {model: Staff },
+        {model: Service }
+      ]
     });
-
-    const userAppts = appts.get({ plain: true });
-
-    res.render("appointments", {
-      ...userAppts,
-    });
+    const userAppts = appts.map((appointment) => appointment.get({ plain: true }))
+    console.log({ appointments: userAppts});
+    res.render("appointments", { appointments: userAppts});
   } catch (err) {
+    console.log(err.message);
     res.status(500).json(err);
   }
 });

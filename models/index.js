@@ -12,16 +12,28 @@ Appointments.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-Service.hasOne(Appointments, {
+Service.hasMany(Appointments, {
     foreignKey: 'service_id',
 });
 
-Staff.hasOne(Appointments, {
+Appointments.belongsTo(Service, {
+  foreignKey: 'service_id',
+});
+
+Staff.hasMany(Appointments, {
     foreignKey: 'staff_id',
 });
 
-Location.hasOne(Appointments, {
+Appointments.belongsTo(Staff, {
+  foreignKey: 'staff_id',
+});
+
+Location.hasMany(Appointments, {
     foreignKey: 'location_id',
-})
+});
+
+Appointments.belongsTo(Location, {
+  foreignKey: 'location_id',
+});
 
 module.exports = { User, Appointments, Location, Staff, Service };
