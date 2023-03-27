@@ -45,11 +45,6 @@ User.init(
     },
     phone_number: {
         type: DataTypes.STRING,
-        validate: {
-            validator: function(v) {
-                return phoneValidationRegex.test(v); 
-            },
-        }
     },
   },
   {
