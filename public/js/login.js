@@ -9,7 +9,7 @@ const login = async (event) => {
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' }
         });
-        response.ok ? document.location.replace('/my-appointments') : alert("Incorrect email or password, please try again.")
+        response.ok ? document.location.replace('/appointments') : alert("Incorrect email or password, please try again.")
     }
 };
 
@@ -25,7 +25,7 @@ const signup = async (event) => {
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' }
         });
-        response.ok ? document.location.replace('/my-profile') : alert(response.statusText)
+        response.ok ? document.location.replace('/profile') : alert(`${email} already exists.`)
     }
 };
 

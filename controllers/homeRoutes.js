@@ -32,13 +32,13 @@ router.get("/profile", async (req, res) => {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
     });
-
     const user = userData.get({ plain: true });
     res.render("profile", {
       ...user,
       logged_in: true,
     });
   } catch (err) {
+    console.log(err.message);
     res.status(500).json(err);
   }
 });
