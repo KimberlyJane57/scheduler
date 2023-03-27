@@ -53,6 +53,30 @@ router.post('/signup', async (req, res) => {
 //   }
 // });
 
+router.put('/profile', async (req, res) => {   
+  try {
+    const userData = await User.update(
+    {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      birthdate: req.body.birthdate,
+      phone_number: req.body.phone_number
+    }, 
+    {
+      where: {
+        id: req.session.user_id,
+      }
+    });
+
+      if (!userData) {
+        res.status(404).json({ message: 'No user found' });
+        return;
+      }
+      res.status(200).json('User info has been updated');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
 
 
 module.exports = router;
