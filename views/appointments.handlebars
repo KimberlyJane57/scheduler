@@ -31,17 +31,47 @@
           data-id='{{appointments.id}}'
         >CONFIRM</button>
       </div>
+        <label for='staff'>Available practicioners:</label>
+        <select name='staff' id='staff'>
+      {{#each staff as |staff|}}
+          <a
+            href='/staff/{{staff.id}}'>
+            <option value='volvo'>{{staff.full_name}}
+              -
+              {{staff.position}}</option>
+          </a>
+      {{/each}}
+        </select>
+         <label for='service'>Available procedures:</label>
+        <select name='service' id='service'>
+      {{#each service as |service|}}
+          <a
+            href='/service/{{service.id}}'>
+            <option value='volvo'>{{service.service_type}}</option>
+          </a>
+      {{/each}}
+        </select>
+                 <label for='service'>Select location:</label>
+        <select name='location' id='location'>
+      {{#each location as |location|}}
+          <a
+            href='/location/{{location.id}}'>
+            <option value='volvo'>{{location.number}} {{location.street_name}}, {{location.city}}, {{location.state}} {{location.zip_code}}</option>
+          </a>
+      {{/each}}
+        </select>
     </form>
     <label>Current Appointments:</label>
     {{#each appointments as |appointments|}}
-      <div class='row mb-2'>
+      <div class='row mb-2 currentAppt'>
         <div class='col-md-8'>
-          <h4><a
-              href='/appointments/{{appointments.id}}'
-            >{{appointments.date}}{{appointments.time}}</a></h4>
+          <h4><a href='/appointments/{{appointments.id}}'>{{appointments.date}}
+              -
+              {{appointments.time}}</a></h4>
         </div>
         <div class='col-md-4'>
           <button
+            href='../remove/<%=data[i].id%'
             id='delete-btn'
             class='btn btn-sm btn-danger'
             type='submit'
