@@ -44,7 +44,7 @@ User.init(
         type: DataTypes.STRING,
     },
     birthdate: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.DATE,
         validate: {
             isDate: {
               args: true,
