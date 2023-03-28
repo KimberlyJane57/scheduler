@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const { Appointments } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
   try {
     const newApp = await Appointments.create({
       ...req.body,
-      user_id: req.session.user_id,
+      // user_id: req.session.user_id,
     });
 
     res.status(200).json(newApp);
