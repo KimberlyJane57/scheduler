@@ -47,7 +47,7 @@ const finishSigningUp = async (event) => {
         response.ok ? alert("OK") : alert("Please enter all required fields.")
     }
     else {
-        alert("Else Please enter all required fields.")
+        alert("Please enter all required fields.")
     }
 }
 
