@@ -1,0 +1,42 @@
+[
+    {
+        "date_id": "1",
+        "hour_id": "1"
+    },
+    {
+        "date_id": "1",
+        "hour_id": "2"
+    },
+    {
+        "date_id": "2",
+        "hour_id": "3"
+    },
+    {
+        "date_id": "2",
+        "hour_id": "4"
+    },
+    {
+        "date_id": "3",
+        "hour_id": "5"
+    },
+    {
+        "date_id": "3",
+        "hour_id": "6"
+    },
+    {
+        "date_id": "4",
+        "hour_id": "7"
+    },
+    {
+        "date_id": "4",
+        "hour_id": "8"
+    },
+    {
+        "date_id": "5",
+        "hour_id": "9"
+    },
+    {
+        "date_id": "5",
+        "hour_id": "1"
+    }
+]
