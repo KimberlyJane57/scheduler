@@ -55,7 +55,14 @@ const finishSigningUp = async (event) => {
             body: JSON.stringify({ first_name, last_name, birthdate, phone_number }),
             headers: { 'Content-Type': 'application/json' }
         });
-        response.ok ? document.location.replace('/view-my-profile') : alert("Please try again.")
+
+        if (response.ok) {
+            document.location.replace('/view-my-profile')
+        } else {
+            const errorResponse = await response.json();
+            alert(errorResponse.message);
+        }
+        
     }
     else {
         alert("Please enter all required fields.")

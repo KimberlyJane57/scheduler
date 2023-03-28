@@ -46,7 +46,8 @@ router.put('/profile', async (req, res) => {
       }
       res.status(200).json('User info has been updated.');
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err);
+    res.status(400).json(err.errors[0]);
   }
 })
 

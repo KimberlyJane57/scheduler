@@ -46,7 +46,10 @@ User.init(
     birthdate: {
         type: DataTypes.DATEONLY,
         validate: {
-            isDate: true
+            isDate: {
+              args: true,
+              msg: "Date format not valid, please use MM/DD/YYYY format"
+            }
         },
     },
     phone_number: {
