@@ -28,7 +28,12 @@ const signup = async (event) => {
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' }
         });
-        response.ok ? document.location.replace('/profile') : alert(`${email} already exists.`)
+        if (response.ok) {
+            document.location.replace('/profile')
+        } else {
+            const errorResponse = await response.json();
+            alert(errorResponse.message);
+        }
     }
     else {
         alert('Please enter all required fields.')

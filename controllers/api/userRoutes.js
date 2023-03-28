@@ -19,7 +19,9 @@ router.post('/signup', async (req, res) => {
       });
       
     } catch (err){
-      res.status(401).json(err);
+      console.log(err);
+      console.log(err.errors[0]);
+      res.status(401).json(err.errors[0]);
     }
     });
 
