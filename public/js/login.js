@@ -29,5 +29,29 @@ const signup = async (event) => {
     }
 };
 
+
+const finishSigningUp = async (event) => {
+    event.preventDefault();
+    console.log('finishsignup');
+    const first_name = $('#first-name').val().trim();
+    const last_name = $('#last-name').val().trim();
+    const birthdate = $('#birthdate').val().trim();
+    const phone_number = $('#phone-number').val().trim();
+
+    if (first_name && last_name && birthdate && phone_number) {
+        const response = await fetch('/api/user/profile', {
+            method: 'PUT',
+            body: JSON.stringify({ first_name, last_name, birthdate, phone_number }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        response.ok ? alert("OK") : alert("Please enter all required fields.")
+    }
+    else {
+        alert("Else Please enter all required fields.")
+    }
+}
+
+
 $('#login-btn').click(login);
 $('#signup-btn').click(signup);
+$('#update-btn').click(finishSigningUp);
