@@ -1,4 +1,4 @@
-<h2>My Profile</h2>
+{{!-- <h2>My Profile</h2>
 <div>
   <div>
     <label for="first-name">First Name:</label>
@@ -16,6 +16,63 @@
     <label for="phone-number">Phone number:</label>
     <input type="text" id="phone-number" value="{{phone_number}}" disabled>
   </div>
-</div>
+</div> --}}
 
 <a href="/profile">Click here to edit your profile</a>
+
+
+<div class="container">
+  <div class="p-5 mt-5 mb-2">
+    <section class="form my-4 mx-5">
+      <div class="container">
+        <div class="row no-gutters log">
+          <div class="col-lg-6 px-5 py-5">
+            <form>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  {{! <img src="" alt=""> }}
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-6 px-5 py-5">
+            <h2 class="font-weight-bold">My Profile</h2>
+            <form>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  {{! <label for="login-email">Email:</label>
+                      <input type="email" placeholder="Enter email" id="login-email" class="form-control my-2 p-2"> }}
+                  <label for="first-name">First Name:</label>
+                  <input type="text" id="first-name" class="form-control my-2 p-2" value="{{first_name}}" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  {{! <label for="login-password">Password:</label>
+                      <input type="password" placeholder="********" id="login-password" class="form-control my-2 p-2"> }}
+                  <label for="last-name">Last Name:</label>
+                  <input type="text" id="last-name" class="form-control my-2 p-2" value="{{last_name}}" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  {{! <button type="submit" id="login-btn" class="btn1 mt-2 mb-5">Login</button> }}
+                  <label for="birthdate">Birthdate:</label>
+                  <input type="text" id="birthdate" class="form-control my-2 p-2" value="{{format_date birthdate}}" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <label for="phone-number">Phone:</label>
+                  <input type="text" id="phone-number" class="form-control my-2 p-2" value="{{phone_number}}" />
+                </div>
+              </div>
+              {{! <a href="#">Forgot Password</a> }}
+              <a href="/profile">Click here to edit your profile</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
