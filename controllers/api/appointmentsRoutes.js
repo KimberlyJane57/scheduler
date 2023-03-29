@@ -1,21 +1,27 @@
 const router = require('express').Router();
 const { Appointments } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post('/create', async (req, res) => {
+router.post('/create', withAuth, async (req, res) => {
   try {
-    const newApp = await Appointments.create({
-      ...req.body,
-      // user_id: req.session.user_id,
+    const { date, time, staff_id, service_id, location_id } = req.body;
+    const user_id = req.session.user_id;
+    const appointmentData = await Appointments.create({
+      date,
+      time,
+      staff_id,
+      service_id,
+      location_id,
+      user_id
     });
-
-    res.status(200).json(newApp);
+    res.status(201).json(appointmentData);
   } catch (err) {
-    console.log(err);
-    res.status(400).json(err);
+    console.error(err);
+    res.status(500).json(err);
   }
 });
 
-router.delete('/remove/:id', async (req, res) => {
+router.delete('/remove/:id', withAuth, async (req, res) => {
   try {
     const appData = await Appointments.destroy({
       where: {
