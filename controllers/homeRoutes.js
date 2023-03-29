@@ -18,9 +18,14 @@ router.get("/appointments", async (req, res) => {
         {model: Service }
       ]
     });
+    const staff = await Staff.findAll()
+    const service = await Service.findAll()
+    const location = await Location.findAll()
+    const staffData = staff.map((staffPick) => staffPick.get({plain: true}))
+    const servData = service.map((servPick) => servPick.get({plain: true}))
+    const locData = location.map((locPick) => locPick.get({plain: true}))
     const userAppts = appts.map((appointment) => appointment.get({ plain: true }))
-    console.log({ appointments: userAppts});
-    res.render("appointments", { appointments: userAppts});
+    res.render("appointments", { appointments: userAppts, staff: staffData, service: servData, location: locData});
   } catch (err) {
     console.log(err.message);
     res.status(500).json(err);

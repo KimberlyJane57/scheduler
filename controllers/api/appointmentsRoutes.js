@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const { Appointments } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
   try {
     const newApp = await Appointments.create({
       ...req.body,
-      user_id: req.session.user_id,
+      // user_id: req.session.user_id,
     });
 
     res.status(200).json(newApp);
@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/remove/(:id)', async (req, res) => {
   try {
     const appData = await Appointments.destroy({
       where: {
