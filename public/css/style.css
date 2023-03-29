@@ -9,12 +9,18 @@ body {
     background-color: rgb(224, 224, 224);
 }
 
+/* Login styling */
 .log {
     background-color: white;
     border-radius: 10px;
     box-shadow: 12px 12px 22px grey;
 }
 
+.login {
+    text-decoration: none;
+}
+
+/* button styling */
 .btn1 {
     border: none;
     outline: none;
@@ -30,4 +36,13 @@ body {
     background-color: white;
     border: 1px solid;
     color: black;
+}
+
+.footer {
+    background-color: rgb(224, 224, 224);
+}
+
+.img1 {
+    height: 230px;
+    width: 230px;
 }
