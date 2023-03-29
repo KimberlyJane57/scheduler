@@ -22,16 +22,19 @@ const createAppt = async (event) => {
   }
 };
 const deleteAppt = async (event) => {
-  event.preventDefault();
-  const response = await fetch('/api/appointments/remove/<%=data[i].id%', {
-  });
+  if(event.target.hasAttribute('data-id')){
+    const apptId = event.target.getAttribute('data-id');
+    const response = await fetch(`/api/projects/${apptId}`, {
+      method: 'DELETE',
+    });
     if (response.ok) {
-        document.location.reload();
-      } else {
-        console.log(response.statusText)
-        alert('Could not delete appointment.');
-      }
+      document.location.replace('/appointments');
+    } else {
+      console.log(response.statusText)
+      alert('Could not delete appointment.');
+    }
   }
+};
 
 $('#confirm-btn').click(createAppt);
 $('#delete-btn').click(deleteAppt);

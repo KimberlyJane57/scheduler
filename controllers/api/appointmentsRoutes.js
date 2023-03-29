@@ -15,7 +15,7 @@ router.post('/create', async (req, res) => {
   }
 });
 
-router.delete('/remove/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const appData = await Appointments.destroy({
       where: {
