@@ -1,15 +1,16 @@
 const router = require("express").Router();
 const { User, Appointments, Location, Staff, Service } = require("../models");
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
   res.render("landing");
 });
 
-router.get("/appointments", async (req, res) => {
+router.get("/appointments", withAuth, async (req, res) => {
   try {
+    const user_id = req.session.user_id;
     const appts = await Appointments.findAll({
-      
+      where: { user_id },
       include: [
         { model: User,
         attributes: { exclude: ['password'] } },
@@ -32,7 +33,7 @@ router.get("/appointments", async (req, res) => {
   }
 });
 
-router.get("/profile", async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
@@ -48,7 +49,7 @@ router.get("/profile", async (req, res) => {
   }
 });
 
-router.get ('/view-my-profile', async (req, res) => {
+router.get ('/view-my-profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
