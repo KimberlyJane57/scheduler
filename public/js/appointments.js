@@ -23,8 +23,9 @@ const createAppt = async (event) => {
 };
 const deleteAppt = async (event) => {
   event.preventDefault();
-  const response = await fetch('/api/appointments/remove/<%=data[i].id%', {
-  });
+  const response = await fetch(`/api/appointments/remove/${$(event.target).attr("data-id")}`, {
+  method: 'DELETE'
+});
     if (response.ok) {
         document.location.reload();
       } else {
@@ -34,4 +35,4 @@ const deleteAppt = async (event) => {
   }
 
 $('#confirm-btn').click(createAppt);
-$('#delete-btn').click(deleteAppt);
+$('.delete-btn').click(deleteAppt);
