@@ -3,7 +3,9 @@ const { User, Appointments, Location, Staff, Service } = require("../models");
 const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
-  res.render("landing");
+  res.render("landing", {
+    logged_in: req.session.logged_in 
+  });
 });
 
 router.get("/appointments", withAuth, async (req, res) => {
@@ -26,7 +28,13 @@ router.get("/appointments", withAuth, async (req, res) => {
     const servData = service.map((servPick) => servPick.get({plain: true}))
     const locData = location.map((locPick) => locPick.get({plain: true}))
     const userAppts = appts.map((appointment) => appointment.get({ plain: true }))
-    res.render("appointments", { appointments: userAppts, staff: staffData, service: servData, location: locData});
+    res.render("appointments", { 
+      appointments: userAppts, 
+      staff: staffData, 
+      service: servData, 
+      location: locData, 
+      logged_in: req.session.logged_in 
+    });
   } catch (err) {
     console.log(err.message);
     res.status(500).json(err);
