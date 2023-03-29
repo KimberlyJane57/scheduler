@@ -1,4 +1,8 @@
 module.exports = {
+    format_time: (time) => {
+        return time.toLocaleTimeString();
+      },
+
     format_date: (date) => {
 
         if (date) {
