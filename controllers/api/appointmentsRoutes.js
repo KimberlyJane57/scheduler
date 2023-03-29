@@ -10,11 +10,12 @@ router.post('/create', async (req, res) => {
 
     res.status(200).json(newApp);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
 
-router.delete('/remove/(:id)', async (req, res) => {
+router.delete('/remove/:id', async (req, res) => {
   try {
     const appData = await Appointments.destroy({
       where: {
