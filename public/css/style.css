@@ -12,7 +12,7 @@ body {
 /* Login styling */
 .log {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 12px 12px 22px grey;
 }
 
@@ -42,7 +42,12 @@ body {
     background-color: rgb(224, 224, 224);
 }
 
-.img1 {
+/* .img1 {
     height: 230px;
     width: 230px;
+} */
+
+.pic {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
