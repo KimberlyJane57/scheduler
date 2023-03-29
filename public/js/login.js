@@ -11,6 +11,9 @@ const login = async (event) => {
         });
         response.ok ? document.location.replace('/appointments') : alert("Incorrect email or password, please try again.")
     }
+    else {
+        alert('Please enter all required fields.')
+    }
 };
 
 const signup = async (event) => {
@@ -25,7 +28,15 @@ const signup = async (event) => {
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' }
         });
-        response.ok ? document.location.replace('/profile') : alert(`${email} already exists.`)
+        if (response.ok) {
+            document.location.replace('/profile')
+        } else {
+            const errorResponse = await response.json();
+            alert(errorResponse.message);
+        }
+    }
+    else {
+        alert('Please enter all required fields.')
     }
 };
 
@@ -44,7 +55,14 @@ const finishSigningUp = async (event) => {
             body: JSON.stringify({ first_name, last_name, birthdate, phone_number }),
             headers: { 'Content-Type': 'application/json' }
         });
-        response.ok ? alert("OK") : alert("Please enter all required fields.")
+
+        if (response.ok) {
+            document.location.replace('/view-my-profile')
+        } else {
+            const errorResponse = await response.json();
+            alert(errorResponse.message);
+        }
+        
     }
     else {
         alert("Please enter all required fields.")

@@ -48,9 +48,25 @@ router.get("/profile", async (req, res) => {
   }
 });
 
+router.get ('/view-my-profile', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+    });
+    const user = userData.get({ plain: true });
+    res.render("viewProfile", {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json(err);
+  }
+});
+
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/profile");
+    res.redirect("/view-my-profile");
     return;
   }
   res.render("login");
