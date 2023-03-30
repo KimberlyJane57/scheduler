@@ -24,9 +24,9 @@
         <div id="navbarContenet" class="">
           <ul class="navbar-nav ml-auto">
             {{#if logged_in}}
-            <a href='/view-my-profile'>My Profile</a>
-            <a href='/appointments'>Appointments</a>
-            <a id="logout">Logout</a>
+            <a class="profileLink mx-3" href='/view-my-profile'>My Profile</a>
+            <a class="appLink mx-3" href='/appointments'>Appointments</a>
+            <a class="logoutLink mx-3" id="logout">Logout</a>
             {{else}}
             <a class="login text-white" href='/login'>Login</a>
             {{/if}}

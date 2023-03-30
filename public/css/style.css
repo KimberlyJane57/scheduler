@@ -20,6 +20,10 @@ body {
     text-decoration: none;
 }
 
+.login:hover {
+    text-decoration: underline;
+}
+
 /* button styling */
 .btn1 {
     border: none;
@@ -50,4 +54,37 @@ body {
 .pic {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
+}
+
+.logoutLink {
+    color: white;
+    text-decoration: none;
+}
+
+.appLink {
+    color: white;
+    text-decoration: none;
+}
+
+.appLink:hover {
+    cursor: grab;
+    text-decoration: underline;
+    color: white;
+}
+
+.logoutLink:hover {
+    cursor: grab;
+    text-decoration: underline;
+    color: white;
+}
+
+.profileLink {
+    color: white;
+    text-decoration: none;
+}
+
+.profileLink:hover {
+    cursor: grab;
+    text-decoration: underline;
+    color: white;
 }
