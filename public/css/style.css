@@ -88,3 +88,8 @@ body {
     text-decoration: underline;
     color: white;
 }
+
+
+.card {
+    box-shadow: 12px 12px 12px grey;
+}
