@@ -1,107 +1,122 @@
-<div class='row'>
-  <div class='col-auto'>
-    <h2>Welcome!</h2>
-  </div>
-</div>
+<section class="mt-3 mb-3">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-xl-10">
+        <div class="card apt">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-3 mx-md-4">
 
-<div class='form-row p-5 h-100'>
-  <div class='col-md-6'>
-    <h3>Create an Appointment!</h3>
-    <form class='form'>
-      <div class='form-row'>
-        <div class='col-lg-7'>
-          <label for='signup-date'>Date:</label>
-          <input
-            type='date'
-            placeholder='pick a date'
-            id='date'
-            class='form-control my-2 p-2'
-          />
-          <input
-            type='time'
-            placeholder='pick a date'
-            id='time'
-            class='form-control my-2 p-2'
-          />
+                <div class="text-center">
+                  <img src="./assets/takepoint.png" style="width: 185px;" alt="logo">
+                  <h4 class="mt-1 mb-3 pb-1">Create an appointment!</h4>
+                </div>
+
+                <form>
+                  <div class="form-outline mb-4">
+                    <label for='signup-date'>Select a date:</label>
+                    <input type='date' placeholder='pick a date' id='date' class='form-control my-2 p-2' />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label for='signup-time'>Select a time:</label>
+                    <input type='time' placeholder='pick a date' id='time' class='form-control my-2 p-2' />
+                  </div>
+
+                  {{!-- <div class="text-center pt-1 mb-3 pb-1">
+                    <button id='confirm-btn' class='btn1' type='submit' data-id='{{appointments.id}}'>
+                      CONFIRM</button>
+                  </div> --}}
+
+                  <label for='staff'>Available practicioners:</label>
+                  <br>
+                  <select name='staff' id='staff'>
+                    {{#each staff as |staff|}}
+                    <a href='/staff/{{staff.id}}'>
+                      <option value='{{staff.id}}'>{{staff.full_name}}
+                        -
+                        {{staff.position}}</option>
+                    </a>
+                    {{/each}}
+                  </select>
+                  <br>
+                  <br>
+                  <label for='service'>Available procedures:</label>
+                  <br>
+                  <select name='service' id='service'>
+                    {{#each service as |service|}}
+                    <a href='/service/{{service.id}}'>
+                      <option value='{{service.id}}'>{{service.service_type}}</option>
+                    </a>
+                    {{/each}}
+                  </select>
+                  <br>
+                  <br>
+                  <label for='service'>Select location:</label>
+                  <br>
+                  <select name='location' id='location'>
+                    {{#each location as |location|}}
+                    <a href='/location/{{location.id}}'>
+                      <option value='{{location.id}}'>{{location.number}}
+                        {{location.street_name}},
+                        {{location.city}},
+                        {{location.state}}
+                        {{location.zip_code}}</option>
+                    </a>
+                    {{/each}}
+                  </select>
+                  <div class="text-center pt-1 my-3 pb-1">
+                    <button id='confirm-btn' class='btn1' type='submit' data-id='{{appointments.id}}'>
+                      CONFIRM</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex">
+              <div class="px-3 py-4 p-md-5 mx-md-4">
+                <label>
+                  <h4 class="mb-4">Current Appointments:</h4>
+                </label>
+                {{#each appointments as |appointment|}}
+                <div class='row mb-2 currentAppt'>
+                  <div class='col-md-8'>
+                    <h4>
+                      <div class="fs-6" href='/appointments/{{appointment.id}}'>
+                        <div class="fs-4">
+                          {{format_date appointment.date}}
+                          -
+                          {{format_time appointment.time}}
+                        </div>
+                        <br>
+                        {{appointment.staff.position}}
+                        <br>
+                        {{appointment.staff.full_name}}
+                        <br>
+                        {{appointment.service.service_type}}
+                        <h5 class="fs-6">
+                          {{appointment.location.number}}
+                          {{appointment.location.street_name}},
+                          {{appointment.location.city}},
+                          {{appointment.location.state}}
+                          {{appointment.location.zip_code}}
+                        </h5>
+                      </div>
+                    </h4>
+                  </div>
+                  <div class='col-md-4'>
+                    <button class='delete-btn btn btn-sm btn-danger' type='submit'
+                      data-id='{{appointment.id}}'>DELETE</button>
+                  </div>
+                </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
         </div>
-        <button
-          id='confirm-btn'
-          class='btn btn-sm btn-secondary'
-          type='submit'
-          data-id='{{appointments.id}}'
-        >CONFIRM</button>
       </div>
-
-      <br>
-      <label for='staff'>Available practicioners:</label>
-      <select name='staff' id='staff'>
-        {{#each staff as |staff|}}
-          <a href='/staff/{{staff.id}}'>
-            <option value='{{staff.id}}'>{{staff.full_name}}
-              -
-              {{staff.position}}</option>
-          </a>
-        {{/each}}
-      </select>
-
-      <br>
-      <label for='service'>Available procedures:</label>
-      <select name='service' id='service'>
-        {{#each service as |service|}}
-          <a href='/service/{{service.id}}'>
-            <option value='{{service.id}}'>{{service.service_type}}</option>
-          </a>
-        {{/each}}
-      </select>
-
-      <br>
-      <label for='service'>Select location:</label>
-      <select name='location' id='location'>
-        {{#each location as |location|}}
-          <a href='/location/{{location.id}}'>
-            <option value='{{location.id}}'>{{location.number}}
-              {{location.street_name}},
-              {{location.city}},
-              {{location.state}}
-              {{location.zip_code}}</option>
-          </a>
-        {{/each}}
-      </select>
-
-    </form>
-    <label>Current Appointments:</label>
-    {{#each appointments as |appointment|}}
-      <div class='row mb-2 currentAppt'>
-        <div class='col-md-8'>
-          <h4><p href='/appointments/{{appointment.id}}'>{{format_date appointment.date}}
-              -
-              {{format_time appointment.time}}
-              -
-              {{appointment.staff.full_name}}
-              -
-              {{appointment.staff.position}}
-              -
-              {{appointment.service.service_type}}
-              <h5>
-                {{appointment.location.number}}
-                {{appointment.location.street_name}},
-                {{appointment.location.city}},
-                {{appointment.location.state}}
-                {{appointment.location.zip_code}}
-              </h5>
-            </p></h4>
-        </div>
-        <div class='col-md-4'>
-          <button
-            class='delete-btn btn btn-sm btn-danger'
-            type='submit'
-            data-id='{{appointment.id}}'
-          >DELETE</button>
-        </div>
-      </div>
-    {{/each}}
+    </div>
   </div>
-</div>
+</section>
 
 <script src='./js/appointments.js'></script>
 <script src="./js/email.js"></script>

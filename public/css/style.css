@@ -46,14 +46,12 @@ body {
     background-color: rgb(224, 224, 224);
 }
 
-/* .img1 {
-    height: 230px;
-    width: 230px;
-} */
 
 .pic {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
+    max-width: 100%;
+    height: auto;
 }
 
 .logoutLink {
@@ -95,4 +93,10 @@ body {
 
 .pic1 {
     box-shadow: 12px 12px 12px grey;
+}
+
+/* appointments */
+
+.apt {
+    border-radius: 30px;
 }

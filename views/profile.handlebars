@@ -1,53 +1,50 @@
-<div class='container'>
-  <div class='p-5 mt-5 mb-2'>
-    <section class='form my-4 mx-5'>
-      <div class='container'>
-        <div class='row log g-0'>
+<section class='Form my-4 mx-5'>
+  <div class="p-3 mt-5">
+    <div class='container'>
+      <div class='row log g-0'>
 
-          <div class='col-lg-6'>
-            <img src='./assets/profileImage.png' class='img-fluid pic' alt='Family smiling' />
-          </div>
+        <div class='col-lg-6'>
+          <img src='./assets/profileImage.png' class='img-fluid pic' alt='Family smiling' />
+        </div>
 
-          <div class='col-lg-6 px-5 py-5'>
-            <h2 class="font-weight-bold">My Profile</h2>
+        <div class='col-lg-6 px-5 py-5'>
+          <h2 class="font-weight-bold">My Profile</h2>
 
-            <form>
-              <div class='form-row'>
-                <div class='col-lg-6'>
-                  <label for="first-name">First Name:</label>
-                  <input type="text" id="first-name" class="form-control my-2 p-2" value="{{first_name}}"/>
-                </div>
+          <form>
+            <div class='form-row'>
+              <div class='col-lg-6'>
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" class="form-control my-2 p-2" value="{{first_name}}" />
               </div>
+            </div>
 
-              <div class='form-row'>
-                <div class='col-lg-6'>
-                  <label for="last-name">Last Name:</label>
-                  <input type="text" id="last-name" class="form-control my-2 p-2" value="{{last_name}}"/>
-                </div>
+            <div class='form-row'>
+              <div class='col-lg-6'>
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" class="form-control my-2 p-2" value="{{last_name}}" />
               </div>
+            </div>
 
-              <div class='form-row'>
-                <div class='col-lg-6'>
-                  <label for="birthdate">Birthdate:</label>
-                  <input type="text" id="birthdate" class="form-control my-2 p-2" value="{{format_date birthdate}}"/>
-                </div>
+            <div class='form-row'>
+              <div class='col-lg-6'>
+                <label for="birthdate">Birthdate:</label>
+                <input type="text" id="birthdate" class="form-control my-2 p-2" value="{{format_date birthdate}}" />
               </div>
+            </div>
 
-              <div class='form-row'>
-                <div class='col-lg-6'>
-                  <label for="phone-number">Phone:</label>
-                  <input type="text" id="phone-number" class="form-control my-2 p-2" value="{{phone_number}}"/>
-                </div>
+            <div class='form-row'>
+              <div class='col-lg-6'>
+                <label for="phone-number">Phone:</label>
+                <input type="text" id="phone-number" class="form-control my-2 p-2" value="{{phone_number}}" />
               </div>
+            </div>
 
-              <button type="submit" id="update-btn">Update</button>
-            </form>
+            <button type="submit" id="update-btn">Update</button>
+          </form>
 
-          </div>
         </div>
       </div>
-    </section>
-  </div>
-</div>
+    </div>
+</section>
 
 <script src="./js/login.js"></script>
