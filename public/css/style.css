@@ -9,22 +9,7 @@ body {
     background-color: rgb(224, 224, 224);
 }
 
-/* Login styling */
-.log {
-    background-color: white;
-    border-radius: 30px;
-    box-shadow: 12px 12px 22px grey;
-}
-
-.login {
-    text-decoration: none;
-}
-
-.login:hover {
-    text-decoration: underline;
-}
-
-/* button styling */
+/* Button styling */
 .btn1 {
     border: none;
     outline: none;
@@ -42,23 +27,82 @@ body {
     color: black;
 }
 
+.btn2 {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 50%;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    /* font-weight: bold; */
+}
+
+.btn2:hover {
+    background-color: white;
+    border: 1px solid;
+    color: black;
+    font-style: italic;
+}
+
+/* Footer styling */
 .footer {
     background-color: rgb(224, 224, 224);
 }
 
-/* .img1 {
-    height: 230px;
-    width: 230px;
-} */
-
+/* Picture styling */
 .pic {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
+    max-width: 100%;
+    height: auto;
 }
 
+.pic1 {
+    box-shadow: 12px 12px 12px grey;
+}
+
+/* Login & Logout styling */
 .logoutLink {
     color: white;
     text-decoration: none;
+}
+
+.logoutLink:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: white;
+}
+
+.log {
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px grey;
+}
+
+.login {
+    text-decoration: none;
+}
+
+.login:hover {
+    text-decoration: underline;
+}
+
+/* Profile styling */
+.profileLink {
+    color: white;
+    text-decoration: none;
+}
+
+.profileLink:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: white;
+}
+
+/* Appointments styling */
+.apt {
+    border-radius: 30px;
 }
 
 .appLink {
@@ -72,19 +116,33 @@ body {
     color: white;
 }
 
-.logoutLink:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    color: white;
+.card {
+    box-shadow: 12px 12px 12px grey;
 }
 
-.profileLink {
-    color: white;
+/* Link styling */
+.scheduleLink {
     text-decoration: none;
+    color: black;
+    font-size: 20px;
 }
 
-.profileLink:hover {
-    cursor: pointer;
-    text-decoration: underline;
+.scheduleLink:hover {
+    cursor: grab;
     color: white;
+    background-color: black;
+    border-radius: 5px;
+    /* font-weight: bold; */
+}
+
+.edit {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    font-size: 15px;
+}
+
+.edit:hover {
+    text-decoration: underline;
+    color: black;
 }
