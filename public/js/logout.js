@@ -7,11 +7,5 @@ const logout = async (event) => {
   
     response.ok ? document.location.replace('/') : alert(response.statusText)
   };
-
-  $(document).ready(function() {
-    $("#toggle-button").click(function() {
-      $("#navbarSupportedContent").toggle();
-    });
-  });
   
  $('#logout').click(logout);
