@@ -65,13 +65,13 @@ body {
 }
 
 .appLink:hover {
-    cursor: grab;
+    cursor: pointer;
     text-decoration: underline;
     color: white;
 }
 
 .logoutLink:hover {
-    cursor: grab;
+    cursor: pointer;
     text-decoration: underline;
     color: white;
 }
@@ -82,7 +82,7 @@ body {
 }
 
 .profileLink:hover {
-    cursor: grab;
+    cursor: pointer;
     text-decoration: underline;
     color: white;
 }
