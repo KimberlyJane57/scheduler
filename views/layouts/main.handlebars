@@ -16,7 +16,7 @@
   <header class='header'>
     <nav class='navbar navbar-expand-md fixed-top py-1 bg-secondary'>
       <div class="container">
-        <a href="#" class="navbar-brand text-uppercase font-weight-bold text-white">
+        <a href="/" class="navbar-brand text-uppercase font-weight-bold text-white">
           <img src="./assets/takepoint.png" class="rounded mx-2" alt="..." height="36">
           TakepointDentistry
           </a>
@@ -25,6 +25,7 @@
           <ul class="navbar-nav ml-auto">
             {{#if logged_in}}
             <a href='/view-my-profile'>My Profile</a>
+            <a href='/appointments'>Appointments</a>
             <a id="logout">Logout</a>
             {{else}}
             <a class="login text-white" href='/login'>Login</a>
