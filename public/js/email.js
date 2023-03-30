@@ -1,6 +1,5 @@
 const sendApptEmail = async (event) => {
     event.preventDefault();
-    console.log('Click is working');
     const confirmed = 'Appointment confirmed'
 
     const response = await fetch('/api/email/send', {

@@ -7,5 +7,5 @@ const logout = async (event) => {
   
     response.ok ? document.location.replace('/') : alert(response.statusText)
   };
-
+  
  $('#logout').click(logout);
