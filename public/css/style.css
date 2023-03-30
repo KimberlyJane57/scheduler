@@ -132,7 +132,7 @@ body {
     color: white;
     background-color: black;
     border-radius: 5px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .edit {
@@ -140,18 +140,9 @@ body {
     color: black;
     background-color: white;
     font-size: 15px;
-    border-radius: 5px;
-    border: 2px solid black;
-    /* font-style: italic; */
 }
 
 .edit:hover {
-    background-color: black;
-    border: 2px solid black;
-    color: white;
-    font-style: italic;
-}
-
-/* .here {
     text-decoration: underline;
-} */
+    color: black;
+}
