@@ -49,7 +49,7 @@ router.get("/profile", withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
     res.render("profile", {
       ...user,
-      logged_in: true,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     console.log(err.message);
@@ -65,7 +65,7 @@ router.get ('/view-my-profile', withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
     res.render("viewProfile", {
       ...user,
-      logged_in: true,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     console.log(err.message);
