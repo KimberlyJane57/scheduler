@@ -21,7 +21,7 @@ try {
         from: process.env.MAIL_USERNAME,
         to: req.session.user_email,
         subject: `${ confirmed }`,
-        text: 'Hi, your appointment with Takepoint Dentistry has been scheduled. '
+        text: 'Hi, your appointment with Takepoint Dentistry has been scheduled.'
       };
 
       transporter.sendMail(mailOptions, function(err, data) {
