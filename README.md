@@ -9,9 +9,9 @@ The process of creating an appointment includes all the relevant data to the use
 N/A
 
 ## Usage 
-![Home Page](/scheduler/public/assets/HomePage.png)
-![Profile](/scheduler/public/assets/ProfilePage.png)
-![Appointments]()
+![Home Page](./public/assets/HomePage.png)
+![Profile](./public/assets/ProfilePage.png)
+![Appointments](./public/assets/apptsPage.png)
 
 ## Credits
 https://github.com/connbstro  -  https://github.com/BiaJorgensen  -  https://github.com/Ross-Boughman
