@@ -4,9 +4,9 @@
   </div>
 </div>
 
-<div class='form-row mt-4'>
+<div class='form-row p-5 h-100'>
   <div class='col-md-6'>
-    <label>Create an Appointment!</label>
+    <h3>Create an Appointment!</h3>
     <form class='form'>
       <div class='form-row'>
         <div class='col-lg-7'>
@@ -31,6 +31,8 @@
           data-id='{{appointments.id}}'
         >CONFIRM</button>
       </div>
+
+      <br>
       <label for='staff'>Available practicioners:</label>
       <select name='staff' id='staff'>
         {{#each staff as |staff|}}
@@ -41,6 +43,7 @@
           </a>
         {{/each}}
       </select>
+
       <br>
       <label for='service'>Available procedures:</label>
       <select name='service' id='service'>
@@ -50,6 +53,7 @@
           </a>
         {{/each}}
       </select>
+
       <br>
       <label for='service'>Select location:</label>
       <select name='location' id='location'>
@@ -63,6 +67,7 @@
           </a>
         {{/each}}
       </select>
+
     </form>
     <label>Current Appointments:</label>
     {{#each appointments as |appointment|}}

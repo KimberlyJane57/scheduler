@@ -89,7 +89,10 @@ body {
     color: white;
 }
 
-
 .card {
+    box-shadow: 12px 12px 12px grey;
+}
+
+.pic1 {
     box-shadow: 12px 12px 12px grey;
 }
