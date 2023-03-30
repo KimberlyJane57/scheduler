@@ -13,29 +13,35 @@ const deleteAppt = async (event) => {
 
   $('#confirm-btn').click(async (event) => {
     event.preventDefault();
-    try {
-      const response = await fetch('/api/appointments/create', {
-        method: 'POST',
-        body: JSON.stringify({
-          date: $('#date').val().trim(),
-          time: $('#time').val().trim(),
-          staff_id: $('#staff').val().trim(),
-          service_id: $('#service').val().trim(),
-          location_id: $('#location').val().trim(),
-          user_id: null 
-        }),
-        headers: {
-          'Content-Type': 'application/json'
+    const date = $('#date').val().trim()
+    const time = $('#time').val().trim()
+    if (date && time) {
+      try {
+        const response = await fetch('/api/appointments/create', {
+          method: 'POST',
+          body: JSON.stringify({
+            date,
+            time,
+            staff_id: $('#staff').val().trim(),
+            service_id: $('#service').val().trim(),
+            location_id: $('#location').val().trim(),
+            user_id: null 
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        if (response.ok) {
+          document.location.reload();
+        } else {
+          console.log(response.statusText);
+          alert('Could not create appointment.');
         }
-      });
-      if (response.ok) {
-        document.location.reload();
-      } else {
-        console.log(response.statusText);
-        alert('Could not create appointment.');
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
+    } else {
+      alert('Plese enter all required fields')
     }
   });
 $('.delete-btn').click(deleteAppt);
